@@ -1,4 +1,13 @@
 //JS Array Method Tutorial....
+function double (number){
+    const doubleValue = [];
+    for(const key of number){
+        const num = key * 2;
+        doubleValue.push(num);
+    }
+    return doubleValue;
+}
+console.log(double([4,5,6,8,10]));
 //Using map array method...
 let arr1 = [2,3,6,8,10];
 let new__aarr = arr1.map((val) => {
