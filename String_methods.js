@@ -31,6 +31,14 @@ let new_arr = arr3.reduce((result, val) => {
 });
 console.log(new_arr);
 
+let number = [10, 25, 30, 50];
+let index = number.findIndex(num => num > 16);
+console.log(index);
+
+const player = [75, 67, 71, 33, 43, 55];
+const selected = player.find(nums => nums < 69);
+console.log(selected);
+
 //Solve some problems using array methods.....
 let arr1 = [78, 80, 91, 95, 98, 75,50];
 let result1 = arr1.filter((val1) => {
