@@ -60,4 +60,10 @@ console.log(fruit.replaceAll('apples', 'mangoes'));
 //Here when use repleace it just change 1st element which i want to change
 //but when use repleaceAll it change all element which i want to change like that solved example....
 
-
+//String method reverse.....
+const sentence = 'I am learning web dev';
+let reverse = '';
+for(const key of sentence){
+    reverse = key + reverse;
+}
+console.log(reverse);
