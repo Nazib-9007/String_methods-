@@ -42,3 +42,21 @@ console.log(proLang.slice(6,16));
 //8...
 const learnWord = 'Code more learn more';
 console.log(learnWord.substring(10,16));
+
+//String method repeat problem solve...
+//1...
+const str = 'Hi ';
+console.log(str.repeat(10));
+
+//2...
+const sentence = 'I am learning javascript. Javascript is amazing!';
+console.log(sentence.replace('Javascript', 'Js'));
+
+//3...
+const fruit = 'I love apples and apples are tasty';
+console.log(fruit.replaceAll('apples', 'mangoes'));
+
+//Here when use repleace it just change 1st element which i want to change
+//but when use repleaceAll it change all element which i want to change like that solved example....
+
+
