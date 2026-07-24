@@ -67,3 +67,19 @@ for(const key of sentence){
     reverse = key + reverse;
 }
 console.log(reverse);
+
+
+// RegExp example...
+const sentence = 'I have an apple';
+const pattern = /apple/;
+console.log(pattern.test(sentence));
+
+const sent = 'I have an apple and another apple';
+const newSent = sent.replace(/apple/g, 'banana');
+console.log(newSent);
+
+function myFunction() {
+  let tryChange = document.getElementById("demo").innerHTML;
+  document.getElementById('demo').innerHTML = 
+  tryChange.replace('Microsoft', 'Google');
+}
