@@ -1,93 +1,50 @@
-//Note: When use my code please atfirst check the veriable name, because i declear duplicate veriable name...
-//String method problem exersize...
-const drink = '     water';
-const liquid = 'water    ';
-if(drink.trim() === liquid.trim()){
-    console.log('Pani hani dami jani');
-} else{
-    console.log('Somudre pani dekhte valo khaite kalo');
+// Order placement system...
+function validPrice(price){
+    return typeof price === 'number' && price > 0
 }
 
-//String method problem exersize...
-//1...
-const friend = 'Raju, Rana, Hasan, Kabir, Majedul';
-console.log(friend.split(' '));
-
-//2...
-const friend1 = 'Raju, Rana, Hasan, Kabir, Majedul';
-console.log(friend.split(','));
-
-//3...
-const str = 'Function if else while';
-console.log(str.split(' '));
-
-//4...
-const language = ['javascript', 'python', 'java'];
-console.log(language.join(' ; '));
-
-//5...
-const newStr = '  console log debug  ';
-console.log(newStr.trim());
-
-//6...
-const str1 = 'push';
-const str2 = 'pop';
-const str3 = 'shift';
-const str4 = 'unshift';
-console.log(str1.concat(' ',str2,' ', str3,' ', str4));
-
-//7...
-const proLang = 'Hello javascript developer';
-console.log(proLang.slice(6,16));
-
-//8...
-const learnWord = 'Code more learn more';
-console.log(learnWord.substring(10,16));
-
-//String method repeat problem solve...
-//1...
-const str = 'Hi ';
-console.log(str.repeat(10));
-
-//2...
-const sentence = 'I am learning javascript. Javascript is amazing!';
-console.log(sentence.replace('Javascript', 'Js'));
-
-//3...
-const fruit = 'I love apples and apples are tasty';
-console.log(fruit.replaceAll('apples', 'mangoes'));
-
-//Here when use repleace it just change 1st element which i want to change
-//but when use repleaceAll it change all element which i want to change like that solved example....
-
-//String method reverse.....
-const sentence = 'I am learning web dev';
-let reverse = '';
-for(const key of sentence){
-    reverse = key + reverse;
-}
-console.log(reverse);
-
-
-// RegExp example...
-const sentence = 'I have an apple';
-const pattern = /apple/;
-console.log(pattern.test(sentence));
-
-const sent = 'I have an apple and another apple';
-const newSent = sent.replace(/apple/g, 'banana');
-console.log(newSent);
-
-function myFunction() {
-  let tryChange = document.getElementById("demo").innerHTML;
-  document.getElementById('demo').innerHTML = 
-  tryChange.replace('Microsoft', 'Google');
+function valideEmail (email){
+    return email.includes('@') && email.includes('.')
 }
 
-function sum (num1, num2){
-    const total = num1 + num2;
-    return total;
+function calculateDiscount(price, discountPersent){
+    if (!validPrice(price)){
+        return 'Invalid price'
+    }
+    let discountAmount = (price * discountPersent)/100
+    return price - discountAmount
 }
 
-const result = sum (5,'7');
-console.log(result);
+function calculateBill(price, vat = 15){
+    let vatPersent = (price * vat)/100
+    return price + vatPersent
+}
+
+function formatBDT(amount){
+    return `${amount.toFixed(2)} BDT`
+}
+
+function capitalized(str){
+    if(!str){
+        return ''
+    }
+    return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
+function processOrder(user, itemPrice, discountCode){
+    console.log(`processing order for ${capitalized(user.name)}`);
+    if(!valideEmail(user.email)){
+        console.log("Invalid Email");
+        return
+    }
+    let currenPrice = itemPrice;
+    if(discountCode == '123AB'){
+        currenPrice = calculateDiscount(itemPrice, 20)
+        console.log('20% discount applied');
+    }
+    let totalBill = calculateBill(currenPrice)
+    console.log('Final ammount to pay: ', formatBDT(totalBill));
+    console.log('Order successfully...');
+}
+let user1 = {name: 'Nazib', email: 'nazib@gmail.com'}
+processOrder(user1, 5000, '123AB');
